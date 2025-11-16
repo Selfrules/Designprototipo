@@ -1,7 +1,7 @@
 import React from 'react';
 import { 
   MessageCircle, Send, X, Sparkles, Mail, Calendar as CalendarIcon,
-  Briefcase, Code, Palette, TrendingUp
+  Briefcase, Code, Palette, TrendingUp, ArrowRight, Award, Shield
 } from 'lucide-react';
 import { NeoBadge } from './NeoBadge';
 
@@ -195,47 +195,215 @@ export function TimelineSection() {
           <CalendarIcon className="w-6 h-6 text-[#0A0A0A]" />
         </div>
         <div>
-          <h2 className="text-h2">Timeline Component</h2>
-          <p className="text-body-small text-[#6B7280]">Journey milestones with vertical timeline</p>
+          <h2 className="text-h2">Journey Timeline</h2>
+          <p className="text-body-small text-[#6B7280]">Vertical timeline with gradient line and milestone cards</p>
         </div>
       </div>
 
-      <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8">
-        <h3 className="text-h3 mb-6">Milestone Cards</h3>
+      {/* Gradient Line Documentation */}
+      <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 mb-8">
+        <h3 className="text-h3 mb-6">Vertical Gradient Line</h3>
+        <p className="text-body-small text-[#6B7280] mb-6">
+          Multi-color gradient line connecting all milestones. On mobile: left-aligned (left-[15px]). On desktop: centered (left-1/2).
+        </p>
         
-        <div className="space-y-8">
-          {/* Example Milestone Card */}
-          <div className="flex gap-6">
-            {/* Timeline Icon */}
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-[#0D7EFF] border-4 border-[#000] rounded-full flex items-center justify-center shadow-brutal-sm flex-shrink-0">
-                <Code className="w-5 h-5 text-white" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+          {/* Visual Example */}
+          <div className="bg-[#FFFCF2] border-3 border-[#000] rounded-lg p-8 relative min-h-[300px]">
+            <p className="text-body-small font-bold mb-6" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              Visual Example
+            </p>
+            <div className="absolute left-[15px] top-16 bottom-8 w-1 bg-gradient-to-b from-[#7209B7] via-[#FFD60A] via-[#FF006E] to-[#0D7EFF]" />
+            <div className="ml-12">
+              <div className="space-y-12">
+                <div className="w-10 h-10 bg-[#7209B7] border-4 border-[#000] rounded-full" />
+                <div className="w-10 h-10 bg-[#FFD60A] border-4 border-[#000] rounded-full" />
+                <div className="w-10 h-10 bg-[#FF006E] border-4 border-[#000] rounded-full" />
+                <div className="w-10 h-10 bg-[#0D7EFF] border-4 border-[#000] rounded-full" />
               </div>
-              <div className="w-1 h-full bg-gradient-to-b from-[#0D7EFF] to-[#7209B7] mt-2" />
+            </div>
+          </div>
+
+          {/* Code */}
+          <div className="bg-[#0A0A0A] border-3 border-[#000] rounded-lg p-6">
+            <p className="text-body-small font-bold mb-4 text-[#FFD60A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              CSS Classes
+            </p>
+            <pre className="text-sm font-mono text-[#0D7EFF] overflow-x-auto">
+{`<div className="
+  absolute 
+  left-[15px] 
+  md:left-1/2 
+  top-0 
+  bottom-0 
+  w-1 
+  bg-gradient-to-b 
+  from-[#7209B7] 
+  via-[#FFD60A] 
+  via-[#FF006E] 
+  to-[#0D7EFF] 
+  md:-translate-x-1/2
+"/>`}
+            </pre>
+          </div>
+        </div>
+      </div>
+
+      {/* Timeline Icons */}
+      <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 mb-8">
+        <h3 className="text-h3 mb-6">Timeline Icons (Dots)</h3>
+        <p className="text-body-small text-[#6B7280] mb-6">
+          Circular icons positioned on the timeline. Current milestone has larger size, glow effect, and pulse animation.
+        </p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {/* Standard Dot */}
+          <div className="bg-[#FFFCF2] border-3 border-[#000] rounded-lg p-6 flex flex-col items-center">
+            <p className="text-body-small font-bold mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              Standard Milestone
+            </p>
+            <div className="w-10 h-10 bg-white border-4 border-[#000] rounded-full flex items-center justify-center shadow-brutal-sm">
+              <Code className="w-5 h-5 text-[#0A0A0A]" />
+            </div>
+            <p className="text-xs font-mono text-[#6B7280] mt-4">w-10 h-10 • bg-white</p>
+          </div>
+
+          {/* Current Dot */}
+          <div className="bg-[#FFFCF2] border-3 border-[#000] rounded-lg p-6 flex flex-col items-center">
+            <p className="text-body-small font-bold mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              Current Milestone
+            </p>
+            <div className="w-12 h-12 bg-[#0D7EFF] border-4 border-[#000] rounded-full flex items-center justify-center shadow-[0_0_0_8px_rgba(13,126,255,0.2)] animate-pulse">
+              <TrendingUp className="w-5 h-5 text-white" />
+            </div>
+            <p className="text-xs font-mono text-[#6B7280] mt-4">w-12 h-12 • bg-[#0D7EFF] • pulse</p>
+          </div>
+
+          {/* Gradient Dot */}
+          <div className="bg-[#FFFCF2] border-3 border-[#000] rounded-lg p-6 flex flex-col items-center">
+            <p className="text-body-small font-bold mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+              Gradient Milestone
+            </p>
+            <div className="w-12 h-12 bg-gradient-to-br from-[#FF006E] to-[#FFD60A] border-4 border-[#000] rounded-full flex items-center justify-center shadow-brutal">
+              <Sparkles className="w-5 h-5 text-white" />
+            </div>
+            <p className="text-xs font-mono text-[#6B7280] mt-4">gradient • from-pink to-yellow</p>
+          </div>
+        </div>
+      </div>
+
+      {/* Milestone Cards */}
+      <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8 mb-8">
+        <h3 className="text-h3 mb-6">Milestone Cards</h3>
+        <p className="text-body-small text-[#6B7280] mb-6">
+          Content cards with date badge, role badge, title, description, achievements, skills, and certifications.
+        </p>
+        
+        <div className="relative">
+          {/* Timeline Line */}
+          <div className="absolute left-[15px] top-0 bottom-0 w-1 bg-gradient-to-b from-[#7209B7] via-[#FFD60A] via-[#FF006E] to-[#0D7EFF]" />
+          
+          <div className="space-y-12">
+            {/* Example 1: Standard Milestone */}
+            <div className="relative">
+              <div className="absolute left-0 top-8 w-10 h-10 bg-white border-4 border-[#000] rounded-full flex items-center justify-center shadow-brutal-sm z-10">
+                <Code className="w-5 h-5 text-[#0A0A0A]" />
+              </div>
+              
+              <div className="ml-12 bg-[#FFFCF2] border-4 border-[#000] rounded-lg shadow-brutal p-6 hover:-translate-y-1 hover:shadow-brutal-lg transition-all">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="inline-block px-3 py-1 bg-white border-2 border-[#000] rounded shadow-brutal-sm text-xs font-mono font-bold">
+                    2018-2021
+                  </span>
+                  <NeoBadge color="blue" className="px-3 py-1 text-xs">Developer</NeoBadge>
+                </div>
+                
+                <h4 className="text-h4 mb-3 text-[#0A0A0A]">
+                  Full-Stack Developer
+                </h4>
+                
+                <p className="text-body-small text-[#2D2D2D] mb-4">
+                  Ho sviluppato applicazioni web complesse utilizzando React, Node.js e PostgreSQL.
+                </p>
+                
+                {/* Achievements */}
+                <ul className="mb-4 space-y-1.5">
+                  <li className="flex items-start gap-2 text-body-small text-[#2D2D2D]">
+                    <ArrowRight className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#0D7EFF]" />
+                    <span>Migrazione infrastruttura cloud con -40% costi</span>
+                  </li>
+                  <li className="flex items-start gap-2 text-body-small text-[#2D2D2D]">
+                    <ArrowRight className="w-4 h-4 flex-shrink-0 mt-0.5 text-[#0D7EFF]" />
+                    <span>Sviluppato design system riutilizzabile</span>
+                  </li>
+                </ul>
+                
+                {/* Skills */}
+                <div className="mb-3">
+                  <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    SKILLS:
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['React', 'Node.js', 'PostgreSQL', 'Docker', 'TypeScript'].map((skill) => (
+                      <span
+                        key={skill}
+                        className="px-2 py-1 bg-white border-2 border-[#000] rounded-sm text-xs"
+                        style={{ fontFamily: 'Space Mono, monospace' }}
+                      >
+                        {skill}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Certifications */}
+                <div>
+                  <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    CERTIFICAZIONI:
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    <span className="px-2 py-1 bg-[#0D7EFF] border-2 border-[#000] rounded-sm text-xs flex items-center gap-1 text-white" style={{ fontFamily: 'Space Mono, monospace' }}>
+                      <Award className="w-3 h-3" />
+                      AWS Certified Developer
+                    </span>
+                    <span className="px-2 py-1 bg-[#0D7EFF] border-2 border-[#000] rounded-sm text-xs flex items-center gap-1 text-white" style={{ fontFamily: 'Space Mono, monospace' }}>
+                      <Shield className="w-3 h-3" />
+                      React Advanced
+                    </span>
+                  </div>
+                </div>
+              </div>
             </div>
 
-            {/* Content Card */}
-            <div className="flex-1 bg-[#FFFCF2] border-4 border-[#000] rounded-lg shadow-brutal p-6 hover:-translate-y-1 hover:shadow-brutal-lg transition-all">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="inline-block px-3 py-1 bg-white border-2 border-[#000] rounded shadow-brutal-sm text-xs font-mono font-bold">
-                  2018-2021
-                </span>
-                <NeoBadge color="blue">Developer</NeoBadge>
+            {/* Example 2: Current Milestone */}
+            <div className="relative">
+              <div className="absolute left-0 top-8 w-12 h-12 bg-[#0D7EFF] border-4 border-[#000] rounded-full flex items-center justify-center shadow-[0_0_0_8px_rgba(13,126,255,0.2)] z-10 animate-pulse">
+                <TrendingUp className="w-5 h-5 text-white" />
               </div>
               
-              <h3 className="text-h3 mb-3 text-[#0A0A0A]">
-                Full-Stack Developer
-              </h3>
-              
-              <p className="text-body-small text-[#2D2D2D] mb-4">
-                Ho sviluppato applicazioni web complesse utilizzando React, Node.js e PostgreSQL. Focus su performance e user experience.
-              </p>
-              
-              <div className="space-y-3">
+              <div className="ml-12 bg-gradient-to-br from-[#0D7EFF]/5 to-transparent border-4 border-[#000] rounded-lg shadow-brutal-lg p-6">
+                <div className="flex flex-wrap gap-2 mb-4">
+                  <span className="inline-block px-3 py-1 bg-white border-2 border-[#000] rounded shadow-brutal-sm text-xs font-mono font-bold">
+                    2024-NOW
+                  </span>
+                  <NeoBadge color="pink" className="px-3 py-1 text-xs">Product Manager</NeoBadge>
+                  <NeoBadge color="neutral" className="px-3 py-1 text-xs">Oggi</NeoBadge>
+                </div>
+                
+                <h4 className="text-h4 mb-3 text-[#0A0A0A]">
+                  Senior Product Manager
+                </h4>
+                
+                <p className="text-body-small text-[#2D2D2D] mb-4">
+                  Guido team cross-funzionali nella creazione di prodotti che gli utenti amano. Focus su data-driven decisions.
+                </p>
+                
                 <div>
-                  <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>SKILLS:</p>
-                  <div className="flex flex-wrap gap-2">
-                    {['React', 'Node.js', 'PostgreSQL', 'Docker'].map((skill) => (
+                  <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                    SKILLS:
+                  </p>
+                  <div className="flex flex-wrap gap-1.5">
+                    {['Product Strategy', 'OKR', 'User Research', 'SQL', 'A/B Testing'].map((skill) => (
                       <span
                         key={skill}
                         className="px-2 py-1 bg-white border-2 border-[#000] rounded-sm text-xs"
@@ -249,30 +417,99 @@ export function TimelineSection() {
               </div>
             </div>
           </div>
+        </div>
+      </div>
 
-          {/* Current Milestone */}
-          <div className="flex gap-6">
-            <div className="flex flex-col items-center">
-              <div className="w-12 h-12 bg-gradient-to-br from-[#FF006E] to-[#FFD60A] border-4 border-[#000] rounded-full flex items-center justify-center shadow-brutal flex-shrink-0 animate-pulse">
-                <TrendingUp className="w-5 h-5 text-white" />
+      {/* Badge Variants Documentation */}
+      <div className="bg-white border-4 border-[#000] rounded-lg shadow-brutal-lg p-8">
+        <h3 className="text-h3 mb-6">Journey Badges</h3>
+        
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          {/* Skills Badges */}
+          <div>
+            <h4 className="text-body mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+              Skills Badges
+            </h4>
+            <p className="text-body-small text-[#6B7280] mb-4">
+              White background with black border. Font: Space Mono monospace.
+            </p>
+            <div className="bg-[#FFFCF2] border-3 border-[#000] rounded-lg p-6">
+              <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                SKILLS:
+              </p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                <span className="px-2 py-1 bg-white border-2 border-[#000] rounded-sm text-xs" style={{ fontFamily: 'Space Mono, monospace' }}>
+                  React
+                </span>
+                <span className="px-2 py-1 bg-white border-2 border-[#000] rounded-sm text-xs" style={{ fontFamily: 'Space Mono, monospace' }}>
+                  TypeScript
+                </span>
+                <span className="px-2 py-1 bg-white border-2 border-[#000] rounded-sm text-xs" style={{ fontFamily: 'Space Mono, monospace' }}>
+                  PostgreSQL
+                </span>
+              </div>
+              <div className="bg-[#0A0A0A] border-2 border-[#000] rounded p-3">
+                <pre className="text-xs font-mono text-[#0D7EFF] overflow-x-auto">
+{`<span className="
+  px-2 py-1 
+  bg-white 
+  border-2 border-[#000] 
+  rounded-sm 
+  text-xs
+" style={{ 
+  fontFamily: 'Space Mono, monospace' 
+}}>
+  React
+</span>`}
+                </pre>
               </div>
             </div>
+          </div>
 
-            <div className="flex-1 bg-gradient-to-br from-[#FF006E] to-[#FFD60A] border-4 border-[#000] rounded-lg shadow-brutal-lg p-6">
-              <div className="flex items-center gap-2 mb-3">
-                <span className="inline-block px-3 py-1 bg-white border-2 border-[#000] rounded shadow-brutal-sm text-xs font-mono font-bold">
-                  2024-NOW
-                </span>
-                <NeoBadge color="yellow">Current</NeoBadge>
-              </div>
-              
-              <h3 className="text-h3 mb-3 text-[#0A0A0A]">
-                Senior Product Manager
-              </h3>
-              
-              <p className="text-body-small text-[#0A0A0A]/90 mb-4">
-                Guido team cross-funzionali nella creazione di prodotti che gli utenti amano. Focus su data-driven decisions e customer empathy.
+          {/* Certification Badges */}
+          <div>
+            <h4 className="text-body mb-4" style={{ fontFamily: 'Space Grotesk, sans-serif', fontWeight: 700 }}>
+              Certification Badges
+            </h4>
+            <p className="text-body-small text-[#6B7280] mb-4">
+              Colored background matching role color. Includes Award/Shield icon. Font: Space Mono.
+            </p>
+            <div className="bg-[#FFFCF2] border-3 border-[#000] rounded-lg p-6">
+              <p className="text-xs font-bold mb-2 text-[#0A0A0A]" style={{ fontFamily: 'Space Grotesk, sans-serif' }}>
+                CERTIFICAZIONI:
               </p>
+              <div className="flex flex-wrap gap-1.5 mb-4">
+                <span className="px-2 py-1 bg-[#0D7EFF] border-2 border-[#000] rounded-sm text-xs flex items-center gap-1 text-white" style={{ fontFamily: 'Space Mono, monospace' }}>
+                  <Award className="w-3 h-3" />
+                  AWS Certified
+                </span>
+                <span className="px-2 py-1 bg-[#FF006E] border-2 border-[#000] rounded-sm text-xs flex items-center gap-1 text-white" style={{ fontFamily: 'Space Mono, monospace' }}>
+                  <Shield className="w-3 h-3" />
+                  PSPO-I Certified
+                </span>
+                <span className="px-2 py-1 bg-[#FFD60A] border-2 border-[#000] rounded-sm text-xs flex items-center gap-1 text-[#0A0A0A]" style={{ fontFamily: 'Space Mono, monospace' }}>
+                  <Award className="w-3 h-3" />
+                  Google Analytics
+                </span>
+              </div>
+              <div className="bg-[#0A0A0A] border-2 border-[#000] rounded p-3">
+                <pre className="text-xs font-mono text-[#0D7EFF] overflow-x-auto">
+{`<span className="
+  px-2 py-1 
+  bg-[#0D7EFF] 
+  border-2 border-[#000] 
+  rounded-sm 
+  text-xs 
+  flex items-center gap-1 
+  text-white
+" style={{ 
+  fontFamily: 'Space Mono, monospace' 
+}}>
+  <Award className="w-3 h-3" />
+  AWS Certified
+</span>`}
+                </pre>
+              </div>
             </div>
           </div>
         </div>

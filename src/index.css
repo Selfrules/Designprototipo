@@ -551,6 +551,10 @@
     bottom: calc(var(--spacing) * 6);
   }
 
+  .bottom-8 {
+    bottom: calc(var(--spacing) * 8);
+  }
+
   .bottom-20 {
     bottom: calc(var(--spacing) * 20);
   }
@@ -1433,6 +1437,11 @@
     border-top-right-radius: .25rem;
   }
 
+  .rounded-r-lg {
+    border-top-right-radius: var(--radius);
+    border-bottom-right-radius: var(--radius);
+  }
+
   .rounded-b {
     border-bottom-right-radius: .25rem;
     border-bottom-left-radius: .25rem;
@@ -1514,12 +1523,24 @@
     border-color: #2d2d2d;
   }
 
+  .border-\[\#6B7280\] {
+    border-color: #6b7280;
+  }
+
+  .border-\[\#10B981\] {
+    border-color: #10b981;
+  }
+
   .border-\[\#7209B7\] {
     border-color: #7209b7;
   }
 
   .border-\[\#E5E5E5\] {
     border-color: #e5e5e5;
+  }
+
+  .border-\[\#EF4444\] {
+    border-color: #ef4444;
   }
 
   .border-\[\#FF006E\] {
@@ -1536,6 +1557,16 @@
 
   .border-white {
     border-color: var(--color-white);
+  }
+
+  .border-white\/20 {
+    border-color: #fff3;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .border-white\/20 {
+      border-color: color-mix(in oklab, var(--color-white) 20%, transparent);
+    }
   }
 
   .border-white\/40 {
@@ -1588,8 +1619,20 @@
     background-color: #2d2d2d;
   }
 
+  .bg-\[\#6B7280\] {
+    background-color: #6b7280;
+  }
+
+  .bg-\[\#6B7280\]\/20 {
+    background-color: oklab(55.1019% -.00229418 -.023248 / .2);
+  }
+
   .bg-\[\#10B981\] {
     background-color: #10b981;
+  }
+
+  .bg-\[\#10B981\]\/20 {
+    background-color: oklab(69.5873% -.142158 .0448781 / .2);
   }
 
   .bg-\[\#1877F2\] {
@@ -1606,6 +1649,14 @@
 
   .bg-\[\#E5E5E5\] {
     background-color: #e5e5e5;
+  }
+
+  .bg-\[\#EF4444\] {
+    background-color: #ef4444;
+  }
+
+  .bg-\[\#EF4444\]\/20 {
+    background-color: oklab(63.6834% .187864 .0889286 / .2);
   }
 
   .bg-\[\#FF006E\] {
@@ -2003,10 +2054,6 @@
     color: oklab(14.4788% 7.45058e-9 7.45058e-9 / .8);
   }
 
-  .text-\[\#0A0A0A\]\/90 {
-    color: oklab(14.4788% 7.45058e-9 7.45058e-9 / .9);
-  }
-
   .text-\[\#0A66C2\] {
     color: #0a66c2;
   }
@@ -2031,8 +2078,16 @@
     color: #6b7280;
   }
 
+  .text-\[\#10B981\] {
+    color: #10b981;
+  }
+
   .text-\[\#7209B7\] {
     color: #7209b7;
+  }
+
+  .text-\[\#EF4444\] {
+    color: #ef4444;
   }
 
   .text-\[\#FF006E\] {
