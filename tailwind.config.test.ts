@@ -568,4 +568,55 @@ describe('Neobrutalist Design System - Tailwind Configuration', () => {
       expect(fullConfig.theme.transitionTimingFunction).toHaveProperty('bounce');
     });
   });
+
+  // ============================================
+  // TIMELINE COMPONENTS TESTS
+  // ============================================
+
+  describe('Journey Timeline Components', () => {
+    it('should have timeline dot glow shadows', () => {
+      expect(fullConfig.theme.boxShadow).toHaveProperty('timeline-dot-glow');
+      expect(fullConfig.theme.boxShadow['timeline-dot-glow']).toBe('0 0 0 8px rgba(13, 126, 255, 0.2)');
+
+      expect(fullConfig.theme.boxShadow).toHaveProperty('timeline-dot-glow-lg');
+      expect(fullConfig.theme.boxShadow['timeline-dot-glow-lg']).toBe('0 0 0 12px rgba(13, 126, 255, 0.1)');
+    });
+
+    it('should have colored timeline dot glow shadows', () => {
+      expect(fullConfig.theme.boxShadow).toHaveProperty('timeline-dot-glow-pink');
+      expect(fullConfig.theme.boxShadow['timeline-dot-glow-pink']).toBe('0 0 0 8px rgba(255, 0, 110, 0.2)');
+
+      expect(fullConfig.theme.boxShadow).toHaveProperty('timeline-dot-glow-yellow');
+      expect(fullConfig.theme.boxShadow['timeline-dot-glow-yellow']).toBe('0 0 0 8px rgba(255, 214, 10, 0.2)');
+
+      expect(fullConfig.theme.boxShadow).toHaveProperty('timeline-dot-glow-purple');
+      expect(fullConfig.theme.boxShadow['timeline-dot-glow-purple']).toBe('0 0 0 8px rgba(114, 9, 183, 0.2)');
+    });
+
+    it('should have timeline gradient background images', () => {
+      expect(fullConfig.theme.backgroundImage).toHaveProperty('timeline-gradient');
+      expect(fullConfig.theme.backgroundImage['timeline-gradient']).toBe('linear-gradient(to bottom, #7209B7 0%, #FFD60A 33%, #FF006E 66%, #0D7EFF 100%)');
+
+      expect(fullConfig.theme.backgroundImage).toHaveProperty('timeline-gradient-purple-blue');
+      expect(fullConfig.theme.backgroundImage['timeline-gradient-purple-blue']).toBe('linear-gradient(to bottom, #7209B7 0%, #0D7EFF 100%)');
+
+      expect(fullConfig.theme.backgroundImage).toHaveProperty('timeline-gradient-yellow-pink');
+      expect(fullConfig.theme.backgroundImage['timeline-gradient-yellow-pink']).toBe('linear-gradient(to bottom, #FFD60A 0%, #FF006E 100%)');
+
+      expect(fullConfig.theme.backgroundImage).toHaveProperty('timeline-gradient-full');
+      expect(fullConfig.theme.backgroundImage['timeline-gradient-full']).toBe('linear-gradient(to bottom, #7209B7 0%, #FFD60A 25%, #FF006E 50%, #0D7EFF 75%, #7209B7 100%)');
+    });
+
+    it('should have pulse-dot animation keyframes', () => {
+      expect(fullConfig.theme.keyframes).toHaveProperty('pulse-dot');
+      expect(fullConfig.theme.keyframes['pulse-dot']).toBeDefined();
+      expect(fullConfig.theme.keyframes['pulse-dot']['0%, 100%']).toEqual({ boxShadow: '0 0 0 8px rgba(13, 126, 255, 0.2)' });
+      expect(fullConfig.theme.keyframes['pulse-dot']['50%']).toEqual({ boxShadow: '0 0 0 12px rgba(13, 126, 255, 0.1)' });
+    });
+
+    it('should have pulse-dot animation', () => {
+      expect(fullConfig.theme.animation).toHaveProperty('pulse-dot');
+      expect(fullConfig.theme.animation['pulse-dot']).toBe('pulse-dot 2s ease-in-out infinite');
+    });
+  });
 });

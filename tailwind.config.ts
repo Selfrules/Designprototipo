@@ -247,6 +247,13 @@ const config: Config = {
         'brutal-colored-pink-lg': '12px 12px 0px 0px #FF006E',
         'brutal-colored-yellow-lg': '12px 12px 0px 0px #FFD60A',
         'brutal-colored-purple-lg': '12px 12px 0px 0px #7209B7',
+
+        // Timeline-specific shadows
+        'timeline-dot-glow': '0 0 0 8px rgba(13, 126, 255, 0.2)',
+        'timeline-dot-glow-lg': '0 0 0 12px rgba(13, 126, 255, 0.1)',
+        'timeline-dot-glow-pink': '0 0 0 8px rgba(255, 0, 110, 0.2)',
+        'timeline-dot-glow-yellow': '0 0 0 8px rgba(255, 214, 10, 0.2)',
+        'timeline-dot-glow-purple': '0 0 0 8px rgba(114, 9, 183, 0.2)',
       },
 
       // ============================================
@@ -298,6 +305,10 @@ const config: Config = {
           '0%': { transform: 'rotate(0deg)' },
           '100%': { transform: 'rotate(360deg)' },
         },
+        'pulse-dot': {
+          '0%, 100%': { boxShadow: '0 0 0 8px rgba(13, 126, 255, 0.2)' },
+          '50%': { boxShadow: '0 0 0 12px rgba(13, 126, 255, 0.1)' },
+        },
       },
 
       animation: {
@@ -310,6 +321,7 @@ const config: Config = {
         'marquee': 'marquee 30s linear infinite',
         'morph': 'morph 8s ease-in-out infinite',
         'rotate-slow': 'rotate-slow 20s linear infinite',
+        'pulse-dot': 'pulse-dot 2s ease-in-out infinite',
       },
 
       // ============================================
@@ -319,6 +331,12 @@ const config: Config = {
         'grid-pattern': 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)',
         'dots-pattern': 'radial-gradient(circle, #000 1px, transparent 1px)',
         'diagonal-pattern': 'repeating-linear-gradient(45deg, transparent, transparent 10px, #000 10px, #000 11px)',
+
+        // Timeline gradient patterns
+        'timeline-gradient': 'linear-gradient(to bottom, #7209B7 0%, #FFD60A 33%, #FF006E 66%, #0D7EFF 100%)',
+        'timeline-gradient-purple-blue': 'linear-gradient(to bottom, #7209B7 0%, #0D7EFF 100%)',
+        'timeline-gradient-yellow-pink': 'linear-gradient(to bottom, #FFD60A 0%, #FF006E 100%)',
+        'timeline-gradient-full': 'linear-gradient(to bottom, #7209B7 0%, #FFD60A 25%, #FF006E 50%, #0D7EFF 75%, #7209B7 100%)',
       },
 
       backgroundSize: {
