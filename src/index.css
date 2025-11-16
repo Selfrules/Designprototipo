@@ -85,8 +85,11 @@
     --text-2xl--line-height: calc(2 / 1.5);
     --text-3xl: 1.875rem;
     --text-3xl--line-height: calc(2.25 / 1.875);
+    --text-5xl: 3rem;
+    --text-5xl--line-height: 1;
     --text-6xl: 3.75rem;
     --text-6xl--line-height: 1;
+    --font-weight-normal: 400;
     --font-weight-bold: 700;
     --tracking-wider: .05em;
     --leading-tight: 1.25;
@@ -482,6 +485,10 @@
 
   .-right-1 {
     right: calc(var(--spacing) * -1);
+  }
+
+  .-right-3 {
+    right: calc(var(--spacing) * -3);
   }
 
   .-right-10 {
@@ -944,6 +951,10 @@
 
   .min-h-\[300px\] {
     min-height: 300px;
+  }
+
+  .min-h-\[400px\] {
+    min-height: 400px;
   }
 
   .min-h-screen {
@@ -1573,6 +1584,10 @@
     background-color: #1db954;
   }
 
+  .bg-\[\#2D2D2D\] {
+    background-color: #2d2d2d;
+  }
+
   .bg-\[\#10B981\] {
     background-color: #10b981;
   }
@@ -1907,6 +1922,16 @@
     line-height: var(--tw-leading, var(--text-2xl--line-height));
   }
 
+  .text-3xl {
+    font-size: var(--text-3xl);
+    line-height: var(--tw-leading, var(--text-3xl--line-height));
+  }
+
+  .text-5xl {
+    font-size: var(--text-5xl);
+    line-height: var(--tw-leading, var(--text-5xl--line-height));
+  }
+
   .text-6xl {
     font-size: var(--text-6xl);
     line-height: var(--tw-leading, var(--text-6xl--line-height));
@@ -1956,6 +1981,11 @@
     font-weight: var(--font-weight-bold);
   }
 
+  .font-normal {
+    --tw-font-weight: var(--font-weight-normal);
+    font-weight: var(--font-weight-normal);
+  }
+
   .tracking-wider {
     --tw-tracking: var(--tracking-wider);
     letter-spacing: var(--tracking-wider);
@@ -1971,6 +2001,10 @@
 
   .text-\[\#0A0A0A\]\/80 {
     color: oklab(14.4788% 7.45058e-9 7.45058e-9 / .8);
+  }
+
+  .text-\[\#0A0A0A\]\/90 {
+    color: oklab(14.4788% 7.45058e-9 7.45058e-9 / .9);
   }
 
   .text-\[\#0A66C2\] {
@@ -2291,6 +2325,16 @@
     color: #6b7280;
   }
 
+  .placeholder\:text-white\/50::placeholder {
+    color: #ffffff80;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .placeholder\:text-white\/50::placeholder {
+      color: color-mix(in oklab, var(--color-white) 50%, transparent);
+    }
+  }
+
   @media (hover: hover) {
     .hover\:-translate-x-1:hover {
       --tw-translate-x: calc(var(--spacing) * -1);
@@ -2494,6 +2538,13 @@
   @media (hover: hover) {
     .hover\:shadow-\[8px_8px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover {
       --tw-shadow: 8px 8px 0px 0px var(--tw-shadow-color, #000);
+      box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+
+  @media (hover: hover) {
+    .hover\:shadow-\[10px_10px_0px_0px_rgba\(0\,0\,0\,1\)\]:hover {
+      --tw-shadow: 10px 10px 0px 0px var(--tw-shadow-color, #000);
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
@@ -2931,6 +2982,13 @@
     .md\:text-3xl {
       font-size: var(--text-3xl);
       line-height: var(--tw-leading, var(--text-3xl--line-height));
+    }
+  }
+
+  @media (width >= 48rem) {
+    .md\:text-6xl {
+      font-size: var(--text-6xl);
+      line-height: var(--tw-leading, var(--text-6xl--line-height));
     }
   }
 

@@ -9,6 +9,7 @@ import {
 } from 'lucide-react';
 import { NeoBadge } from './NeoBadge';
 import { BlogComponentsSection, PatternsTexturesSection, NavigationComponentsSection } from './DesignSystemSections';
+import { ChatBotSection, FormsSection, TimelineSection, HeroSection as HeroComponentSection, WorkTogetherSection as WorkTogetherComponentSection } from './DesignSystemAdditional';
 
 interface DesignSystemPageProps {
   onBack: () => void;
@@ -112,7 +113,7 @@ export function DesignSystemPage({ onBack }: DesignSystemPageProps) {
           
           {/* Quick Navigation */}
           <div className="flex flex-wrap justify-center gap-3">
-            {['Colors', 'Typography', 'Spacing', 'Components', 'Blog', 'Patterns', 'Navigation', 'Effects', 'Accessibility', 'Icons'].map((section) => (
+            {['Colors', 'Typography', 'Spacing', 'Components', 'Blog', 'Patterns', 'Navigation', 'ChatBot', 'Forms', 'Timeline', 'Hero', 'Services', 'Effects', 'Accessibility', 'Icons'].map((section) => (
               <a
                 key={section}
                 href={`#${section.toLowerCase()}`}
@@ -735,6 +736,16 @@ export function DesignSystemPage({ onBack }: DesignSystemPageProps) {
         <PatternsTexturesSection />
 
         <NavigationComponentsSection />
+
+        <ChatBotSection />
+
+        <FormsSection />
+
+        <TimelineSection />
+
+        <HeroComponentSection />
+
+        <WorkTogetherComponentSection />
 
         {/* 7. ICONS */}
         <section id="icons" className="mb-20 scroll-mt-24">
