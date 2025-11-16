@@ -579,3 +579,211 @@ html {
   margin-bottom: 16px;
   line-height: 1.7;
 }
+
+/* ============================================ */
+/* JOURNEY TIMELINE COMPONENTS */
+/* ============================================ */
+
+/* Timeline Dots */
+.timeline-dot {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 4px solid #000;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+
+.timeline-dot-current {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 4px solid #000;
+  background-color: #0D7EFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 0 0 8px rgba(13, 126, 255, 0.2);
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% {
+    box-shadow: 0 0 0 8px rgba(13, 126, 255, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 0 12px rgba(13, 126, 255, 0.1);
+  }
+}
+
+/* Timeline Connecting Line */
+.timeline-line {
+  position: absolute;
+  width: 4px;
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(
+    to bottom,
+    #7209B7 0%,
+    #FFD60A 33%,
+    #FF006E 66%,
+    #0D7EFF 100%
+  );
+}
+
+/* Milestone Card */
+.milestone-card {
+  background-color: #FFFCF2;
+  border: 4px solid #000;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 #000;
+  padding: 20px 24px;
+  transition: all 300ms ease;
+}
+
+.milestone-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 10px 10px 0 #000;
+}
+
+.milestone-card-current {
+  background: linear-gradient(135deg, rgba(13, 126, 255, 0.05) 0%, transparent 100%);
+  border: 4px solid #000;
+  border-radius: 8px;
+  box-shadow: 6px 6px 0 #000;
+  padding: 20px 24px;
+  transition: all 300ms ease;
+}
+
+.milestone-card-current:hover {
+  transform: translateY(-4px);
+  box-shadow: 10px 10px 0 #000;
+}
+
+/* Journey Badge - Date */
+.journey-date-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  background-color: white;
+  border: 2px solid #000;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 #000;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  color: #0A0A0A;
+}
+
+/* Skill Tags */
+.skill-tag {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: white;
+  border: 2px solid #000;
+  border-radius: 2px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: #0A0A0A;
+  transition: all 200ms ease;
+}
+
+.skill-tag:hover {
+  background-color: #FFFCF2;
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 0 #000;
+}
+
+/* Certification Badge */
+.cert-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 8px;
+  border: 2px solid #000;
+  border-radius: 2px;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.cert-badge-blue {
+  background-color: #0D7EFF;
+  color: white;
+}
+
+.cert-badge-pink {
+  background-color: #FF006E;
+  color: white;
+}
+
+.cert-badge-yellow {
+  background-color: #FFD60A;
+  color: #0A0A0A;
+}
+
+.cert-badge-purple {
+  background-color: #7209B7;
+  color: white;
+}
+
+/* Journey Role Badge (inherits from NeoBadge but with specific timeline styling) */
+.journey-role-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border: 3px solid #000;
+  border-radius: 4px;
+  box-shadow: 2px 2px 0 #000;
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: transform 200ms ease;
+}
+
+.journey-role-badge:hover {
+  transform: translateY(-2px);
+}
+
+/* Timeline Achievement Item */
+.timeline-achievement {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #2D2D2D;
+}
+
+.timeline-achievement-icon {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+/* Timeline Gradient Variants */
+.timeline-line-purple-blue {
+  background: linear-gradient(to bottom, #7209B7 0%, #0D7EFF 100%);
+}
+
+.timeline-line-yellow-pink {
+  background: linear-gradient(to bottom, #FFD60A 0%, #FF006E 100%);
+}
+
+.timeline-line-full {
+  background: linear-gradient(
+    to bottom,
+    #7209B7 0%,
+    #FFD60A 25%,
+    #FF006E 50%,
+    #0D7EFF 75%,
+    #7209B7 100%
+  );
+}
