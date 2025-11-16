@@ -16,8 +16,9 @@ import { AdminDashboard } from './components/admin/AdminDashboard';
 import { ArticleCreator } from './components/admin/ArticleCreator';
 import { ConversationManager } from './components/admin/ConversationManager';
 import { Analytics } from './components/admin/Analytics';
+import { DesignSystemPage } from './components/DesignSystemPage';
 
-type ViewType = 'home' | 'blog' | 'article' | 'admin';
+type ViewType = 'home' | 'blog' | 'article' | 'admin' | 'design-system';
 type AdminView = 'dashboard' | 'articles' | 'conversations' | 'analytics';
 
 export default function App() {
@@ -79,6 +80,11 @@ export default function App() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleDesignSystemAccess = () => {
+    setCurrentView('design-system');
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   // Show admin section
   if (currentView === 'admin') {
     if (!isAdminAuthenticated) {
@@ -137,9 +143,16 @@ export default function App() {
           onArticleClick={handleArticleClick}
           onBackToHome={handleBackToHome}
         />
-        <Footer onAdminClick={handleAdminAccess} />
+        <Footer onAdminClick={handleAdminAccess} onDesignSystemClick={handleDesignSystemAccess} />
         <ChatBot />
       </>
+    );
+  }
+
+  // Show design system page
+  if (currentView === 'design-system') {
+    return (
+      <DesignSystemPage onBack={handleBackToHome} />
     );
   }
 
@@ -176,7 +189,7 @@ export default function App() {
       <AskMeSection />
       
       {/* Footer - Chiusura */}
-      <Footer onAdminClick={handleAdminAccess} />
+      <Footer onAdminClick={handleAdminAccess} onDesignSystemClick={handleDesignSystemAccess} />
 
       {/* Floating ChatBot */}
       <ChatBot />

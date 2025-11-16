@@ -1,11 +1,12 @@
 import React from 'react';
-import { Linkedin, Twitter, Github, Mail, Heart, ExternalLink } from 'lucide-react';
+import { Linkedin, Twitter, Github, Mail, Heart, ExternalLink, ArrowRight } from 'lucide-react';
 
 interface FooterProps {
   onAdminClick?: () => void;
+  onDesignSystemClick?: () => void;
 }
 
-export function Footer({ onAdminClick }: FooterProps = {}) {
+export function Footer({ onAdminClick, onDesignSystemClick }: FooterProps = {}) {
   const currentYear = new Date().getFullYear();
 
   return (
@@ -164,26 +165,31 @@ export function Footer({ onAdminClick }: FooterProps = {}) {
           <p className="text-xs text-white/40 font-mono">
             Design neobrutalist • Built with React & Tailwind • Deployed con amore
           </p>
-          <a 
-            href="#"
-            className="text-xs text-white/20 hover:text-white/60 transition-colors font-mono mt-2 inline-block cursor-pointer"
-            onClick={(e) => {
-              e.preventDefault();
-              onAdminClick?.();
-            }}
-          >
-            🔐 Admin
-          </a>
+          <div className="flex justify-center gap-4 mt-2">
+            <a 
+              href="#"
+              className="text-xs text-white/20 hover:text-white/60 transition-colors font-mono cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                onAdminClick?.();
+              }}
+            >
+              🔐 Admin
+            </a>
+            <span className="text-xs text-white/20">•</span>
+            <a 
+              href="#"
+              className="text-xs text-white/20 hover:text-white/60 transition-colors font-mono cursor-pointer"
+              onClick={(e) => {
+                e.preventDefault();
+                onDesignSystemClick?.();
+              }}
+            >
+              🎨 Design System
+            </a>
+          </div>
         </div>
       </div>
     </footer>
-  );
-}
-
-function ArrowRight({ className }: { className?: string }) {
-  return (
-    <svg className={className} fill="none" stroke="currentColor" viewBox="0 0 24 24">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-    </svg>
   );
 }
